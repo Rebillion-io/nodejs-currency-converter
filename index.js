@@ -207,8 +207,7 @@ class CurrencyConverter {
     if (currencyAmount <= 0)
       throw new Error("amount should be a positive number")
 
-    this.currencyAmount = currencyAmount
-    return this
+    return
   }
 
   setDecimalComma(isDecimalComma) {
@@ -314,12 +313,12 @@ class CurrencyConverter {
     if (this.currencyTo == "")
       throw new Error("currency code cannot be an empty string")
 
-    if (this.currencyAmount == 0)
+    if (currencyAmount == 0)
       throw new Error("currency amount should be a positive value")
 
     return this.rates().then((rates) => {
-      this.convertedValue = rates * this.currencyAmount
-      return this.convertedValue
+      let convertedValue = rates * currencyAmount
+      return convertedValue
     })
   }
 
